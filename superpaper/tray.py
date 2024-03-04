@@ -89,13 +89,9 @@ class TaskBarIcon(wx.adv.TaskBarIcon):
         # Should now return an object if a previous profile was written or
         # None if no previous data was found
         if STARTUP_PROFILE:
-            self.active_profile = self.get_profile_by_name(STARTUP_PROFILE)
+            self.active_profile = open_profile(STARTUP_PROFILE)
         else:
-            prev_active_prof = read_active_profile()
-            if prev_active_prof:
-                self.active_profile = self.get_profile_by_name(prev_active_prof.name)
-            else:
-                self.active_profile = None
+            self.active_profile = read_active_profile()
         if self.active_profile:
             wpproc.G_ACTIVE_PROFILE = self.active_profile.name
         self.start_prev_profile(self.active_profile)
