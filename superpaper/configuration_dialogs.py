@@ -459,7 +459,6 @@ class DisplayPositionEntry(wx.Frame):
         if res:
             self.parent.button_save.Enable()
             self.parent.button_cancel.Enable()
-            self.parent.positions_dragged = False
             self.Destroy()
 
     def onCancel(self, event):
